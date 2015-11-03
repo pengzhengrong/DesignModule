@@ -41,7 +41,11 @@ public class Master {
 	}
 	
 	//执行worker中主要的处理逻辑
+	/**
+	 * 逻辑：让threadMap中的worker去执行分配给他们的任务，初始化了5个worker，就这5个worker去工作。
+	 */
 	public void execute(){
+		
 		for( Map.Entry<String, Thread> e : threadMap.entrySet() ){
 			e.getValue().start();
 		}

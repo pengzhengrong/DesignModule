@@ -1,0 +1,64 @@
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd"
+    updateCheck="true" monitoring="autodetect"
+    dynamicConfig="true">
+
+	<diskStore path="/home/save/"  />
+ <!-- maxElementsInMemory 该缓存中允许存放的最大条目数量
+        eternal 缓存内容是否永久储存  
+        overflowToDisk 如果内存中的数据超过了maxElementsInMemory，是否使用磁盘存储
+        timeToIdleSeconds 如果不是永久存储的缓存，那么在指定的时间内没有访问一个条目，则移除他。
+        timeToLiveSeconds 如果不是永久存储的缓存，一个条目可以存在的最长时间。
+        diskPersistent 磁盘存储的条目是否永久保存
+        diskExpiryThreadIntervalSeconds 磁盘清理线程的运行时间间隔
+         -->
+    <defaultCache
+       maxElementsInMemory="2000"
+       eternal="false"
+       overflowToDisk="false"
+       timeToIdleSeconds="1800"
+       timeToLiveSeconds="1800" 
+       diskPersistent="false"
+       diskExpiryThreadIntervalSeconds="120"
+       >
+    </defaultCache>
+
+    <cache name="data-cache"
+      maxElementsInMemory="2000"
+      overflowToDisk="false"
+      eternal="false"
+      timeToIdleSeconds="1800"
+      timeToLiveSeconds="1800"
+      memoryStoreEvictionPolicy="LRU"
+      transactionalMode="off"
+      maxEntriesLocalHeap="0"
+       >
+       <searchable >
+       		<searchAttribute name="name"  />
+       		<searchAttribute name="age"  />
+       </searchable>
+        <!--可以根据Key进行查询，查询的Attribute就是keys-->
+       </cache>
+       <cache name="data-cache2"
+      maxElementsInMemory="2000"
+      overflowToDisk="false"
+      eternal="false"
+      timeToIdleSeconds="1800"
+      timeToLiveSeconds="1800"
+      memoryStoreEvictionPolicy="LRU"
+      transactionalMode="off"
+       >
+   <searchable keys="true"/> <!--可以根据Key进行查询，查询的Attribute就是keys-->
+    </cache>
+      <cache name="data-cache3"
+      maxElementsInMemory="2000"
+      overflowToDisk="false"
+      eternal="false"
+      timeToIdleSeconds="1800"
+      timeToLiveSeconds="1800"
+      memoryStoreEvictionPolicy="LRU"
+      transactionalMode="off"
+       >
+   <searchable keys="true"/> <!--可以根据Key进行查询，查询的Attribute就是keys-->
+    </cache>
+</ehcache>
