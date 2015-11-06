@@ -1,5 +1,11 @@
 package decoratorUtil;
 
+import java.io.BufferedInputStream;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 public class HttpPacketCreator extends PacketDecorator{
 
 	public HttpPacketCreator(IPacketCreator c) {
@@ -13,6 +19,23 @@ public class HttpPacketCreator extends PacketDecorator{
 		sb.append("<body>");
 		sb.append(component.handle());
 		sb.append("</body>");
+		
+		try {
+//			FileInputStream fis = new FileInputStream(new File("/home/save/cms") );
+//			DataInputStream dis = new DataInputStream(fis);
+//			BufferedInputStream bis = new BufferedInputStream(dis);
+			//装饰者
+			BufferedInputStream bis = new BufferedInputStream(
+					new DataInputStream(
+							new FileInputStream(
+									new File("/home/save/cms")
+									)
+							)
+					);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		return sb.toString();
 	}

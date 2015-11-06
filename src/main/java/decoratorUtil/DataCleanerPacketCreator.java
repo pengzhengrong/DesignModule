@@ -45,3 +45,34 @@ public class DataCleanerPacketCreator extends PacketDecorator{
 	
 	
 }
+
+
+class NHttpPacketcreator extends PacketDecorator{
+
+	public NHttpPacketcreator(IPacketCreator c) {
+		super(c);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public String handle() {
+		// TODO Auto-generated method stub
+		StringBuffer sb = new StringBuffer();
+		sb.append("Http1.1 Status: Ok MIMIE: txt/html");
+		sb.append(  component.handle() );
+		return sb.toString();
+	}
+	
+	public static void main(String[] args) {
+		IPacketCreator packetCreator = new NHttpPacketcreator(
+				new HttpPacketCreator(
+						new DataCleanerPacketCreator( 
+								new PacketBodyCreator()
+								)
+						)
+				);
+		
+		System.out.println( packetCreator.handle() );
+	}
+	
+}

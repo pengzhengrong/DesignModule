@@ -1,0 +1,8 @@
+组件接口（IpacketCreator）       ：装饰者和被装饰者都是通过组件接口而进行下一步的包装
+被装饰者（PacketBodyCreator）：主要是核心数据
+装饰者父类（PacketDecorator） ：主要提供组件的构造函数，子类继承后即可获取上一个组件的内容
+具体装饰者（HttpPacketCreator）：继承装饰者父类，能够对获取到的结果进行再次装饰。
+
+eg:
+FileInputStream fis = new FileInputStream(new File("/home/save/cms"));
+Data

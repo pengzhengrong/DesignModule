@@ -39,6 +39,10 @@
  Worker：工人，工人主要就是干活，所以需要定义的有：什么活（workQueue），干的结果（resultMap），怎么去干（handle），执行任务（run） 
  扩展思路：Master 有各种各样的工人，Master可以接受相应的不同的任务分配给不同的类型的工人去处理。 
  代码：git@github.com:pengzhengrong/DesignModule.git 
+ 6：观察者模式
+ 	理解：对于需要不同监听的功能实现，观察者模式是一个很好的实现方式。
+ 	经典案例：button的触发事件。
+ 	角色：主题接口，具体接口，观察者接口，具体观察者
 
 
 
