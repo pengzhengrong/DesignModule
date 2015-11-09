@@ -10,9 +10,9 @@ public class Master {
 
 	//任务队列
 	protected Queue<Object> workQuene = new ConcurrentLinkedQueue<Object>();
-	//worker进程队列
+	//worker进程
 	protected Map<String, Thread> threadMap = new ConcurrentHashMap<String, Thread>();
-	//子结果集队列
+	//子结果集
 	protected Map<String, Object> resultMap = new ConcurrentHashMap<String, Object>();
 	
 	

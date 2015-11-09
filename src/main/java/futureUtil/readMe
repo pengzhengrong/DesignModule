@@ -1,0 +1,19 @@
+流程：
+  客户端：发出请求 -- 立即返回[future对象]
+  		客户端获取future对象，但是不会立即对返回的数据进行处理。
+  		客户端发出请求的同时，也会另起一个[线程]，用来获取真实数据。
+  服务器：
+  		Data接口，定义了返回结果的数据[方法]
+  		FutureData，实现Data接口，并且需要[实现RealData]，为了获取RealData返回的[真实数据]。
+  			Future模式最主要的就是FutureData，因为在这个方法中，主要是为了获取真是数据而存在，但是却又能够立即返回
+  			客户端future对象，以便客户端能够在后来对future获取的真实数据进行处理。FutureData中在获取真实数据之前，
+  			必须等待RealData的初始化工作和返回真实的数据，然后FutureData才能返回真实数据。在实现当中，就需要引入一
+  			个[阀门]，用来控制RealData是否真的返回了真实数据，FutureData此时则为wait状态，需要等待唤醒。
+  		RealData，返回真实数据，对客户端请求的数据进行处理，然后返回真实需要的数据。
+  		
+  		
+ jdk自带的future模式
+ 	RealData：RealData实现callable接口,
+ 	客户端：
+ 		FutureTask 任务队列，并且能够配置请求的响应超时等行为。ExecutorService 初始化线程池，并且能够执行任务
+ 		队列中的call方法。在future.get()方法返回前，会一直处于等待状态。

@@ -1,0 +1,5 @@
+master
+成员：worker列表，事件队列，通知worker，接收worker的结果集合，判断worker是否工作完成，接收工作，分发工作
+
+worker
+成员：做什么事，结果返回何处，怎么做

@@ -1,5 +1,8 @@
 package poolUtil;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Connection {
 
 	/*private Connection conn = new Connection(); 
@@ -14,7 +17,10 @@ public class Connection {
 		}
 	}*/
 	
+	private Logger LOG = LoggerFactory.getLogger( "system");
+	
 	public void query( String sql ){
+		LOG.info(sql + "log");
 		System.out.println( sql );
 	}
 	
