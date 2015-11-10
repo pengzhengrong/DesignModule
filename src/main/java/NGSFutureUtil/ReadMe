@@ -1,0 +1,13 @@
+携带结果的保护暂停模式
+1：Request  模拟请求，并且定义了Data response 用来获取FutureData
+2：RequestQueue 请求队列，请求会放在这个队列中
+3：Data 接口：定义返回的结果方法
+4：FutureData 实现Data接口，用来给客户端返回future，但是实现RealData。客户端请求的时候，先将future对象返回给
+	客户端，然后future会实例化RealData去真实处理数据，然后将获取的结果返回future。此时future最后就可在获取数据。
+5：RealData 真实去处理请求的数据。
+6：ClientThread 客户端线程，用来模拟发送请求。但是这一次还会在客户端中模拟接收请求
+7： ServiceThread 服务器线程，用来模拟服务器处理请求。
+
+
+
+		
