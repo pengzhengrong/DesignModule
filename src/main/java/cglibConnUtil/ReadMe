@@ -1,0 +1,4 @@
+这是allModulesTest 包 中conn的代理类。
+动态代理分为3类：jdk代理，cglib代理，javassist代理  这是其中的第二个
+cglib 动态代理技术，典型的例子就是Hibernate的po属性getter setter操作，只有获取某一个具体的属性的时候才会去
+getter 和 setter 。

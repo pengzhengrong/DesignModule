@@ -18,14 +18,14 @@
 	</appender>
 	<appender name="ERROR" class="org.apache.log4j.DailyRollingFileAppender">
 		<param name="Append" value="true" />
-		<param name="File" value="E:/log/account/error.log" />
+		<param name="File" value="/home/save/logs/DesignModules/error.log" />
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="%d %-5p - %m%n" />
 		</layout>
 	</appender>
 	<appender name="Manage" class="org.apache.log4j.DailyRollingFileAppender">
 		<param name="Append" value="true" />
-		<param name="File" value="E:/log/account/manage.log" />
+		<param name="File" value="/home/save/logs/DesignModules/manage.log" />
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="%d %-5p - %m%n" />
 		</layout>
@@ -33,7 +33,7 @@
 
 	<appender name="Db" class="org.apache.log4j.DailyRollingFileAppender">
 		<param name="Append" value="true" />
-		<param name="File" value="E:/log/account/db.log" />
+		<param name="File" value="/home/save/logs/DesignModules/db.log" />
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="%d %-5p - %m%n" />
 		</layout>
@@ -53,37 +53,37 @@
 		<appender-ref ref="SYSTEM" />
 	</logger>
 
-	<logger name="accountBook.logger.db">
+	<logger name="db">
 		<level value="INFO" />
 		<appender-ref ref="Db" />
 	</logger>
 
-	<logger name="accountBook.logger.error">
+	<logger name="error">
 		<level value="ERROR" />
 		<appender-ref ref="ERROR" />
 	</logger>
-	<logger name="accountBook.logger.manage">
+	<logger name="manage">
 		<level value="DEBUG" />
 		<appender-ref ref="Manage" />
 	</logger>
-	<logger name="com.mchange">
+<!-- 	<logger name="com.mchange">
 		<level value="ERROR" />
 		<appender-ref ref="SYSTEM" />
 	</logger>
 	<logger name="org.springframework">
 		<level value="INFO" />
 		<appender-ref ref="SYSTEM" />
-	</logger>
-	<logger name="org.apache">
+	</logger> -->
+<!-- 	<logger name="org.apache">
 		<level value="INFO" />
 		<appender-ref ref="SYSTEM" />
-	</logger>
+	</logger> -->
 	<logger name="WORKER">
 		<level value="DEBUG" />
 		<appender-ref ref="WORKER" />
 	</logger>
 	<root>
-		<level value="DEBUG" />
+		<level value="debug" />
 		<appender-ref ref="SYSTEM" />
 		<appender-ref ref = "WORKER" />
 		<appender-ref ref="STDOUT" />

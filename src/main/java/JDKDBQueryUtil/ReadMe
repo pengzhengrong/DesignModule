@@ -1,0 +1,5 @@
+1：IDBQuery ， 主题接口
+2：DBQuery ， 具体主题，用于实现主题接口。
+3：JdkDBQueryHandler ， 实现 InvocationHandler，用于动态实现真实对象的代理
+4：JDKProxy，同于获取代理对象
+5：Test，获取代理，并且在调用真实对象的方法时才会去真正的实例化真实对象

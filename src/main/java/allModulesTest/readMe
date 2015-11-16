@@ -3,3 +3,8 @@
 2：利用master_worker 处理列表 做插入操作
 3：日志记录发生的事情
 4：从数据库中query，通过jdbc，返回一个list。
+5：连接池已经创建好，但是如果用户并没有对数据进行操作的时候，并不需要真正的实例化连接池。所以再此可以调用代理模式。
+6：代理模式：jdk自带的代理模式 , cglib 动态代理模式 和 javassist 动态代理模式
+jdkProxy 实现接口： invokeHandler		  invocationHandler
+cglib       实现接口：MethodInterceptor MethodInterceptor
+javassist 实现接口：MethodHandler	   MethodHandler

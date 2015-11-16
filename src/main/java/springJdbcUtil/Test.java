@@ -1,6 +1,7 @@
 package springJdbcUtil;
 
 import java.sql.Types;
+import java.util.Iterator;
 import java.util.List;
 
 public class Test {
@@ -8,13 +9,23 @@ public class Test {
 	
 	public static void main(String[] args1) {
 		UserDao sj = (UserDao) SpringUtil.getBean("userDao");
-		System.out.println( sj==null );
+		List list = sj.findAll();
+//		Iterator it = list.iterator();
+		String sql = " select age from user ";
 		User u = new User();
-//		SpringJdbcUtil s = new SpringJdbcUtil();
-		String sql = "select name,loginname,createtime,age from user";
-		Object[] args = {u.getName() , u.getLoginName() , u.getCreateTime() , u.getAge()};
-		int[] argTypes = { Types.VARCHAR , Types.VARCHAR , Types.DATE , Types.INTEGER };
-		List<User> list = sj.queryForList(sql, args, argTypes);
-		System.out.println( list.size() );
+		Object[] args = { u.getAge() };
+		int[] argTypes = { Types.INTEGER };
+		
+		List<User> list2 = sj.queryForList(sql, User.class);
+		
+		for (User object : list2) {
+			System.out.println( object.getAge());
+		}
+		
+	
+			
+//		sj.
+		
+		
 	}
 }

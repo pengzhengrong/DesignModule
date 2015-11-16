@@ -1,0 +1,24 @@
+    ------------------------------------------------
+    代理工厂类的初始化
+    public ProxyFactory() {
+        superClass = null;
+        interfaces = null;
+        methodFilter = null;
+        handler = null;
+        signature = null;
+        signatureMethods = null;
+        hasGetHandler = false;
+        thisClass = null;
+        writeDirectory = null;
+        factoryUseCache = useCache;
+        factoryWriteReplace = useWriteReplace;
+    }
+    ----------------------------------------------------
+    proxyFactory.setInterfaces( new Class[]{ IConnection.class });
+    Class proxyClass = proxyFactory.createClass();
+	IConnection javassistProxy = (IConnection) proxyClass.newInstance();
+	((ProxyObject)javassistProxy).setHandler( new JavassistConnProxyHandler() );
+    
+    
+    
+    
